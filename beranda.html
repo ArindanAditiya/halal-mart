@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- flowbite -->
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
+
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-+Y3Wbb+t6y... (panjang) ..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- google fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet" />
+
+    <style>
+      .card-container::-webkit-scrollbar {
+        width: 0;
+      }
+    </style>
+  </head>
+  <body class="bg-teal-50">
+    <!-- top bar -->
+    <nav class="fixed top-0 z-40 block py-[20px] w-full bg-linear-to-br from-teal-600 to-teal-400 shadow flex justify-center">
+      <div class="w-9/10 flex justify-between items-center">
+        <div class="flex h-7 w-9/10">
+          <span class="block h-full w-8 bg-white flex rounded-bl-full rounded-tl-full border-r-1 border-teal-100"><i class="fa-solid fa-magnifying-glass m-auto text-teal-700"></i></span>
+          <input id="search" placeholder="" type="text" class="h-full border-0 text-sm flex-1 focus:outline-none focus:border-0 focus:ring-0 shadow" autocomplete="none" />
+          <!-- search section -->
+          <div id="search-group" class="fixed top-18 -translate-y-1 bottom-0 left-0 right-0 bg-teal-50 z-40 hidden">
+            <h1 class="w-80 mx-auto my-3 text-teal-600 text-lg font-bold">History</h1>
+            <div class="container w-80 mx-auto flex flex-wrap gap-1">
+              <span class="text-sm bg-white border-2 border-teal-400 text-teal-600 shadow px-3 rounded-full">Sayur <i class="fa-solid fa-xmark cursor-pointer"></i></span>
+              <span class="text-sm bg-white border-2 border-teal-400 text-teal-600 shadow px-3 rounded-full">Buah <i class="fa-solid fa-xmark cursor-pointer"></i></span>
+              <span class="text-sm bg-white border-2 border-teal-400 text-teal-600 shadow px-3 rounded-full">Sembako <i class="fa-solid fa-xmark cursor-pointer"></i></span>
+              <span class="text-sm bg-white border-2 border-teal-400 text-teal-600 shadow px-3 rounded-full">Snack <i class="fa-solid fa-xmark cursor-pointer"></i></span>
+              <span class="text-sm bg-white border-2 border-teal-400 text-teal-600 shadow px-3 rounded-full">Kebutuhan <i class="fa-solid fa-xmark cursor-pointer"></i></span>
+              <span class="text-sm bg-white border-2 border-teal-400 text-teal-600 shadow px-3 rounded-full">Daging <i class="fa-solid fa-xmark cursor-pointer"></i></span>
+              <span class="text-sm bg-white border-2 border-teal-400 text-teal-600 shadow px-3 rounded-full">Minuman <i class="fa-solid fa-xmark cursor-pointer"></i></span>
+              <span class="text-sm bg-white border-2 border-teal-400 text-teal-600 shadow px-3 rounded-full">Rempah <i class="fa-solid fa-xmark cursor-pointer"></i></span>
+            </div>
+          </div>
+          <!-- end card section -->
+        </div>
+
+        <div onclick="cartToggle()" class="flex items-center text-white relative hover:cursor-pointer">
+          <span id="cartCouter" class="bg-white text text-teal-800 border-2 border-teal-600 text-xs block h-[20px] w-[20px] rounded-full flex justify-center items-center absolute -top-4 -right-4">3</span>
+          <i class="fa fa-shopping-cart text-white"></i>
+          <!-- search section -->
+          <div id="cart-group" class="fixed top-18 -translate-y-1 bottom-0 left-0 right-0 bg-teal-50 z-40 hidden">
+            <h1 class="w-80 mx-auto my-3 text-teal-600 text-lg font-bold">History</h1>
+            <div class="container w-80 mx-auto flex flex-wrap gap-1"></div>
+          </div>
+          <!-- end card section -->
+        </div>
+      </div>
+    </nav>
+    <!-- bottom bar -->
+    <nav class="fixed bottom-2 left-1/2 -translate-x-1/2 rounded-full z-30 block py-[7px] w-1/2 bg-white border-2 border-teal-600 text-teal-600 shadow flex justify-center">
+      <div class="w-9/10 flex justify-center gap-5 items-center">
+        <!-- Beranda -->
+        <a href="beranda.html">
+          <div class="flex items-center relative hover:cursor-pointer flex-col">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="#0d9488" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l9.75-9.75L21.75 12M4.5 10.5v9a1.5 1.5 0 001.5 1.5h4.5v-6h3v6h4.5a1.5 1.5 0 001.5-1.5v-9" />
+            </svg>
+            <span class="text-xs">Beranda</span>
+          </div>
+        </a>
+
+        <!-- Lainnya -->
+        <a href="lainnya.html"
+          ><div class="flex items-center relative hover:cursor-pointer flex-col">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 2.25h12a.75.75 0 01.75.75v3H5.25v-3a.75.75 0 01.75-.75zM3.75 6.75h16.5L19.5 21.75H4.5L3.75 6.75zM8.25 10.5a3.75 3.75 0 017.5 0" />
+            </svg>
+            <span class="text-xs">Lainnya</span>
+          </div></a
+        >
+      </div>
+    </nav>
+
+    <!-- carousel -->
+    <div id="default-carousel" class="relative m-auto w-9/10 mt-25" data-carousel="slide">
+      <!-- Carousel wrapper -->
+      <div class="relative h-49 overflow-hidden rounded-lg md:h-96">
+        <!-- Item 1 -->
+        <div class="hidden duration-700 ease-in-out" data-carousel-item>
+          <img src="img/carousel-1.jpg" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..." />
+        </div>
+        <!-- Item 2 -->
+        <div class="hidden duration-700 ease-in-out" data-carousel-item>
+          <img src="img/carousel-2.jpg" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..." />
+        </div>
+        <!-- Item 3 -->
+        <div class="hidden duration-700 ease-in-out" data-carousel-item>
+          <img src="img/carousel-3.jpg" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..." />
+        </div>
+        <!-- Item 4 -->
+        <div class="hidden duration-700 ease-in-out" data-carousel-item>
+          <img src="img/carousel-4.jpg" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..." />
+        </div>
+        <!-- Item 5 -->
+        <div class="hidden duration-700 ease-in-out" data-carousel-item>
+          <img src="img/carousel-5.jpg" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..." />
+        </div>
+      </div>
+      <!-- Slider indicators -->
+      <div class="absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse">
+        <button type="button" class="w-1 h-1 rounded-full" aria-current="true" aria-label="Slide 1" data-carousel-slide-to="0"></button>
+        <button type="button" class="w-1 h-1 rounded-full" aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></button>
+        <button type="button" class="w-1 h-1 rounded-full" aria-current="false" aria-label="Slide 3" data-carousel-slide-to="2"></button>
+        <button type="button" class="w-1 h-1 rounded-full" aria-current="false" aria-label="Slide 4" data-carousel-slide-to="3"></button>
+        <button type="button" class="w-1 h-1 rounded-full" aria-current="false" aria-label="Slide 5" data-carousel-slide-to="4"></button>
+      </div>
+    </div>
+
+    <!-- menu  -->
+    <section class="w-9/10 mx-auto mt-3">
+      <div class="flex gap-5 justify-center text-center">
+        <a href="buah.html" class="flex flex-col items-center gap-1 iline-block">
+          <span href="#" class="rounded-full h-10 w-10 bg-teal-100 cursor-pointer"></span>
+          <span class="text-xs">Buah</span>
+        </a>
+        <a href="sayur.html" class="flex flex-col items-center gap-1 iline-block">
+          <span href="#" class="rounded-full h-10 w-10 bg-teal-100 cursor-pointer"></span>
+          <span class="text-xs">Sayur</span>
+        </a>
+        <a href="sembako.html" class="flex flex-col items-center gap-1 iline-block">
+          <span href="#" class="rounded-full h-10 w-10 bg-teal-100 cursor-pointer"></span>
+          <span class="text-xs">Sembako</span>
+        </a>
+
+        <a href="kebutuhan.html" class="flex flex-col items-center gap-1 iline-block">
+          <span href="#" class="rounded-full h-10 w-10 bg-teal-100 cursor-pointer"></span>
+          <span class="text-xs">Kebutuhan </span>
+        </a>
+      </div>
+    </section>
+
+    <!-- SAYUR -->
+    <!-- section title -->
+    <div class="w-9/10 flex justify-between mx-auto my-5 text-md font-bold text-teal-800">
+      <h1 class="">Sayur</h1>
+      <div class="inline-block group cursor-pointer"><span class="inline-block group-hover:mr-[8px] transition-all ease-in-out duration-500">Lainnya</span><span>→</span></div>
+    </div>
+    <section id="sayur">
+      <div id="sayur-container" class="text-teal-900 mt-5 container gap-5 flex overflow-x-auto card-container mx-auto lg:w-1/9 lg:overflow-none">
+        <!-- card sayurnya nya ditampilin disini awokawok -->
+      </div>
+    </section>
+
+    <!-- BUAH -->
+    <!-- section title -->
+    <div class="w-9/10 flex justify-between mx-auto my-5 text-md font-bold text-teal-800">
+      <h1 class="">Buah</h1>
+      <div class="inline-block group cursor-pointer"><span class="inline-block group-hover:mr-[8px] transition-all ease-in-out duration-500">Lainnya</span><span>→</span></div>
+    </div>
+    <section id="buah">
+      <div id="buah-container" class="text-teal-900 mt-5 container gap-5 flex overflow-x-auto card-container mx-auto lg:w-1/9 lg:overflow-none">
+        <!-- card buahanya nya ditampilin disini awokawok -->
+      </div>
+    </section>
+
+    <!-- SEMBAKO -->
+    <!-- section title -->
+    <div class="w-9/10 flex justify-between mx-auto my-5 text-md font-bold text-teal-800">
+      <h1 class="">Sembako</h1>
+      <div class="inline-block group cursor-pointer"><span class="inline-block group-hover:mr-[8px] transition-all ease-in-out duration-500">Lainnya</span><span>→</span></div>
+    </div>
+    <section id="sembako">
+      <div id="sembako-container" class="text-teal-900 mt-5 container gap-5 flex overflow-x-auto card-container mx-auto lg:w-1/9 lg:overflow-none">
+        <!-- card sembako nya ditampilin disini awokawok -->
+      </div>
+    </section>
+
+    <!-- KEBUTUHAN -->
+    <!-- section title -->
+    <div class="w-9/10 flex justify-between mx-auto my-5 text-md font-bold text-teal-800">
+      <h1 class="">Kebutuhan Rumah Tangga</h1>
+      <div class="inline-block group cursor-pointer"><span class="inline-block group-hover:mr-[8px] transition-all ease-in-out duration-500">Lainnya</span><span>→</span></div>
+    </div>
+    <section id="kebutuhan">
+      <div id="kebutuhan-container" class="text-teal-900 mt-5 container gap-5 flex overflow-x-auto card-container mx-auto lg:w-1/9 lg:overflow-none">
+        <!-- card kebutuhan nya ditampilin disini awokawok -->
+      </div>
+    </section>
+
+    <div class="mb-[100px]"></div>
+
+    <!-- flowbite -->
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/dataProduk.js"></script>
+    <script src="js/renderFunction.js"></script>
+    <script src="js/rendering/homeCard.js"></script>
+    <script src="js/loading.js"></script>
+  </body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- flowbite -->
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
+
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-+Y3Wbb+t6y... (panjang) ..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- google fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet" />
+
+    <style>
+      .card-container::-webkit-scrollbar {
+        width: 0;
+      }
+    </style>
+  </head>
+  <body class="bg-teal-50">
+    <!-- top bar -->
+    <nav class="fixed top-0 z-40 block py-[20px] w-full bg-linear-to-br from-teal-600 to-teal-400 shadow flex justify-center">
+      <div class="w-9/10 flex justify-between items-center">
+        <div class="flex h-7 w-9/10">
+          <span class="block h-full w-8 bg-white flex rounded-bl-full rounded-tl-full border-r-1 border-teal-100"><i class="fa-solid fa-magnifying-glass m-auto text-teal-700"></i></span>
+          <input id="search" placeholder="" type="text" class="h-full border-0 text-sm flex-1 focus:outline-none focus:border-0 focus:ring-0 shadow" autocomplete="none" autofocus />
+        </div>
+        <div class="flex items-center text-white relative hover:cursor-pointer">
+          <span id="cartCouter" class="bg-white text text-teal-800 border-2 border-teal-600 text-xs block h-[20px] w-[20px] rounded-full flex justify-center items-center absolute -top-4 -right-4">3</span>
+          <i class="fa fa-shopping-cart text-white"></i>
+        </div>
+      </div>
+    </nav>
+    <!-- bottom bar -->
+    <nav class="fixed bottom-2 left-1/2 -translate-x-1/2 rounded-full z-40 block py-[7px] w-1/2 bg-white border-2 border-teal-600 text-teal-600 shadow flex justify-center">
+      <div class="w-9/10 flex justify-center gap-5 items-center">
+        <!-- Beranda -->
+        <a href="beranda.html">
+          <div class="flex items-center relative hover:cursor-pointer flex-col">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l9.75-9.75L21.75 12M4.5 10.5v9a1.5 1.5 0 001.5 1.5h4.5v-6h3v6h4.5a1.5 1.5 0 001.5-1.5v-9" />
+            </svg>
+            <span class="text-xs">Beranda</span>
+          </div>
+        </a>
+
+        <!-- Lainnya -->
+        <a href="lainnya.html"
+          ><div class="flex items-center relative hover:cursor-pointer flex-col">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="#0d9488" viewBox="0 0 24 24" stroke-width="1.5" stroke="white" class="w-5 h-5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 2.25h12a.75.75 0 01.75.75v3H5.25v-3a.75.75 0 01.75-.75zM3.75 6.75h16.5L19.5 21.75H4.5L3.75 6.75zM8.25 10.5a3.75 3.75 0 017.5 0" />
+            </svg>
+            <span class="text-xs">Lainnya</span>
+          </div></a
+        >
+      </div>
+    </nav>
+    <div class="mb-[100px]"></div>
+    <!-- SAYUR -->
+    <!-- section title -->
+    <div class="w-9/10 flex justify-between mx-auto my-5 text-md font-bold text-teal-800">
+      <h1 class="text-2xl">Sayur</h1>
+    </div>
+    <section id="sayur">
+      <div id="sayur-container-all" class="text-teal-900 mt-5 container gap-5 flex flex-wrap justify-center mx-auto lg:w-1/9 lg:overflow-none">
+        <!-- card sayurnya nya ditampilin disini awokawok -->
+      </div>
+    </section>
+
+    <div class="mb-[100px]"></div>
+
+    <!-- flowbite -->
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/dataProduk.js"></script>
+    <script src="js/renderFunction.js"></script>
+    <script src="js/rendering/sayurCard.js"></script>
+    <script src="js/loading.js"></script>
+    <script></script>
+  </body>
+</html>
