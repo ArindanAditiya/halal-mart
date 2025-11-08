@@ -24,12 +24,15 @@ function renderCard(data, containerId, limit = null) {
     `;
     card.appendChild(info);
 
-    // 4. masukkan counter
+    // counter (plus & minus)
     const count = document.createElement("div");
-    count.className = "flex justify-between items-center text-xs font-bold h-5 w-[60px] bg-white absolute right-[5px] top-[130px] shadow px-1 rounded-full border-2 border-teal-400";
+    count.className = "flex justify-between items-center text-xs font-bold h-5 w-[80px] bg-white absolute right-[5px] top-[130px] shadow px-1 rounded-full border-2 border-teal-400";
     count.innerHTML = `
-      <div id="${item.id}" class="h-[20px] w-[15px] flex items-center justify-center cursor-pointer">0</div>
-      <div class="h-[20px] w-[15px] flex items-center justify-center" onclick="tambah(${item.id})">
+      <div class="h-[20px] w-[15px] flex items-center justify-center cursor-pointer" onclick="kurang(${item.id})">
+        <i class="fa fa-minus"></i>
+      </div>
+      <div id="count-${item.id}" class="h-[20px] w-[15px] flex items-center justify-center">0</div>
+      <div class="h-[20px] w-[15px] flex items-center justify-center cursor-pointer" onclick="tambah(${item.id})">
         <i class="fa fa-plus"></i>
       </div>
     `;
@@ -40,18 +43,22 @@ function renderCard(data, containerId, limit = null) {
 }
 
 function tambah(productId) {
-  // kalau belum ada, inisialisasi jadi 0
   if (!productCounts[productId]) {
     productCounts[productId] = 0;
   }
-
-  // tambah 1 untuk produk ini aja
   productCounts[productId] += 1;
-
-  // update total cart
   cartCounter += 1;
 
-  // update tampilan
-  document.getElementById(productId).innerHTML = productCounts[productId];
+  document.getElementById(`count-${productId}`).innerHTML = productCounts[productId];
   document.getElementById("cartCouter").innerHTML = cartCounter;
+}
+
+function kurang(productId) {
+  if (productCounts[productId] && productCounts[productId] > 0) {
+    productCounts[productId] -= 1;
+    cartCounter -= 1;
+
+    document.getElementById(`count-${productId}`).innerHTML = productCounts[productId];
+    document.getElementById("cartCouter").innerHTML = cartCounter;
+  }
 }

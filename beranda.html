@@ -43,20 +43,106 @@
               <span class="text-sm bg-white border-2 border-teal-400 text-teal-600 shadow px-3 rounded-full">Rempah <i class="fa-solid fa-xmark cursor-pointer"></i></span>
             </div>
           </div>
-          <!-- end card section -->
+          <!-- end cart section -->
         </div>
 
         <div onclick="cartToggle()" class="flex items-center text-white relative hover:cursor-pointer">
           <span id="cartCouter" class="bg-white text text-teal-800 border-2 border-teal-600 text-xs block h-[20px] w-[20px] rounded-full flex justify-center items-center absolute -top-4 -right-4">3</span>
           <i class="fa fa-shopping-cart text-white"></i>
-          <!-- search section -->
-          <div id="cart-group" class="fixed top-18 -translate-y-1 bottom-0 left-0 right-0 bg-teal-50 z-40 hidden">
-            <h1 class="w-80 mx-auto my-3 text-teal-600 text-lg font-bold">History</h1>
-            <div class="container w-80 mx-auto flex flex-wrap gap-1"></div>
-          </div>
-          <!-- end card section -->
         </div>
       </div>
+      <!-- cart section -->
+      <div id="cart-group" class="fixed top-18 -translate-y-1 bottom-0 left-0 right-0 bg-teal-50 z-40 hidden">
+        <h1 class="w-80 mx-auto my-3 text-teal-600 text-lg font-bold">Cart</h1>
+        <div class="container w-80 mx-auto flex flex-col items-center gap-1">
+          <div class="flex flex-col gap-3">
+            <!-- Card 1 -->
+            <div class="flex flex-col gap-3 relative">
+              <!-- Card 1 -->
+              <div class="w-full flex-shrink-0 bg-white border-2 border-teal-400 relative shadow rounded-lg overflow-hidden flex gap-2 items-center p-2">
+                <img class="w-18 h-18 object-cover rounded-lg" src="img/produk/pisang.jpg" alt="Pisang" />
+
+                <div class="flex-1">
+                  <h3 class="font-bold text-md">Pisang</h3>
+                  <span class="text-sm harga-dagangan text-gray-600">Rp. 10,000</span>
+                </div>
+
+                <div class="flex justify-between items-center text-xs font-bold h-6 w-[80px] bg-white shadow px-1 rounded-full border-2 border-teal-400">
+                  <button class="h-[20px] w-[18px] flex items-center justify-center cursor-pointer text-teal-600 hover:bg-teal-100 rounded-full">
+                    <i class="fa fa-minus"></i>
+                  </button>
+                  <div id="jumlah-pisang" class="h-[20px] w-[20px] flex items-center justify-center">0</div>
+                  <button class="h-[20px] w-[18px] flex items-center justify-center cursor-pointer text-teal-600 hover:bg-teal-100 rounded-full">
+                    <i class="fa fa-plus"></i>
+                  </button>
+                </div>
+
+                <!-- Tombol hapus (ikon tong sampah) -->
+                <button class="absolute top-1 right-1 h-[24px] w-[24px] flex items-center justify-center text-red-500 hover:text-white hover:bg-red-500 rounded-full transition">
+                  <i class="fa fa-trash"></i>
+                </button>
+              </div>
+
+              <!-- Card 2 -->
+              <div class="w-full flex-shrink-0 bg-white border-2 border-teal-400 relative shadow rounded-lg overflow-hidden flex gap-2 items-center p-2">
+                <img class="w-18 h-18 object-cover rounded-lg" src="img/produk/apel.jpg" alt="Apel" />
+
+                <div class="flex-1">
+                  <h3 class="font-bold text-md">Apel</h3>
+                  <span class="text-sm harga-dagangan text-gray-600">Rp. 12,000</span>
+                </div>
+
+                <div class="flex justify-between items-center text-xs font-bold h-6 w-[80px] bg-white shadow px-1 rounded-full border-2 border-teal-400">
+                  <button class="h-[20px] w-[18px] flex items-center justify-center cursor-pointer text-teal-600 hover:bg-teal-100 rounded-full">
+                    <i class="fa fa-minus"></i>
+                  </button>
+                  <div id="jumlah-apel" class="h-[20px] w-[20px] flex items-center justify-center">0</div>
+                  <button class="h-[20px] w-[18px] flex items-center justify-center cursor-pointer text-teal-600 hover:bg-teal-100 rounded-full">
+                    <i class="fa fa-plus"></i>
+                  </button>
+                </div>
+
+                <button class="absolute top-1 right-1 h-[24px] w-[24px] flex items-center justify-center text-red-500 hover:text-white hover:bg-red-500 rounded-full transition">
+                  <i class="fa fa-trash"></i>
+                </button>
+              </div>
+
+              <!-- Card 3 -->
+              <div class="w-full flex-shrink-0 bg-white border-2 border-teal-400 relative shadow rounded-lg overflow-hidden flex gap-2 items-center p-2">
+                <img class="w-18 h-18 object-cover rounded-lg" src="img/produk/mangga.jpg" alt="Mangga" />
+
+                <div class="flex-1">
+                  <h3 class="font-bold text-md">Mangga</h3>
+                  <span class="text-sm harga-dagangan text-gray-600">Rp. 15,000</span>
+                </div>
+
+                <div class="flex justify-between items-center text-xs font-bold h-6 w-[80px] bg-white shadow px-1 rounded-full border-2 border-teal-400">
+                  <button class="h-[20px] w-[18px] flex items-center justify-center cursor-pointer text-teal-600 hover:bg-teal-100 rounded-full">
+                    <i class="fa fa-minus"></i>
+                  </button>
+                  <div id="jumlah-mangga" class="h-[20px] w-[20px] flex items-center justify-center">0</div>
+                  <button class="h-[20px] w-[18px] flex items-center justify-center cursor-pointer text-teal-600 hover:bg-teal-100 rounded-full">
+                    <i class="fa fa-plus"></i>
+                  </button>
+                </div>
+
+                <button class="absolute top-1 right-1 h-[24px] w-[24px] flex items-center justify-center text-red-500 hover:text-white hover:bg-red-500 rounded-full transition">
+                  <i class="fa fa-trash"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a
+          href="https://wa.me/62852219798481?text=Halo%20saya%20mau%20checkout%20barang%20ini%3A%0A%0A1.%20Pisang%20-%20Rp10.000%20(x1)%0A2.%20Apel%20-%20Rp12.000%20(x1)%0A3.%20Mangga%20-%20Rp15.000%20(x1)%0A%0ATotal%3A%20Rp37.000"
+          target="_blank"
+          class="fixed w-9/10 block mx-auto bottom-4 left-1/2 -translate-x-1/2 bg-green-500 hover:bg-green-600 text-white text-sm font-semibold py-3 px-6 rounded-full flex items-center gap-2 shadow-lg"
+        >
+          <i class="fa-brands fa-whatsapp text-lg"></i>
+          <span>Checkout via WhatsApp (Rp. 37.000)</span>
+        </a>
+      </div>
+      <!-- end cart section -->
     </nav>
     <!-- bottom bar -->
     <nav class="fixed bottom-2 left-1/2 -translate-x-1/2 rounded-full z-30 block py-[7px] w-1/2 bg-white border-2 border-teal-600 text-teal-600 shadow flex justify-center">
