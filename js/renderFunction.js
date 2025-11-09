@@ -11,16 +11,19 @@ function renderCard(data, containerId, limit = null) {
     const card = document.createElement("div");
     card.className = "w-38 flex-shrink-0 bg-white border-2 border-teal-400 relative shadow rounded-lg overflow-hidden";
 
+    // gambar produk
     const img = document.createElement("img");
     img.src = "img/produk/" + item.img;
     img.className = "w-full";
     card.appendChild(img);
 
+    // info utama
     const info = document.createElement("div");
     info.className = "px-2 pb-3";
     info.innerHTML = `
       <h3 class="nama-dagangan font-bold text-md mt-2">${item.name}</h3>
       <span class="text-sm harga-dagangan">Rp. ${item.price.toLocaleString()}</span>
+      <div class="text-xs text-gray-500">stok : <b>${item.stock}<b/></div>
     `;
     card.appendChild(info);
 
