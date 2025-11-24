@@ -22,22 +22,131 @@
       }
     </style>
   </head>
-  <body class="bg-teal-50">
+  <body class="bg-teal-50 text-gray-800">
+    <!-- start all bar -->
     <!-- top bar -->
     <nav class="fixed top-0 z-40 block py-[20px] w-full bg-linear-to-br from-teal-600 to-teal-400 shadow flex justify-center">
       <div class="w-9/10 flex justify-between items-center">
         <div class="flex h-7 w-9/10">
           <span class="block h-full w-8 bg-white flex rounded-bl-full rounded-tl-full border-r-1 border-teal-100"><i class="fa-solid fa-magnifying-glass m-auto text-teal-700"></i></span>
           <input id="search" placeholder="" type="text" class="h-full border-0 text-sm flex-1 focus:outline-none focus:border-0 focus:ring-0 shadow" autocomplete="none" />
+          <!-- search section -->
+          <div id="search-group" class="fixed top-18 -translate-y-1 bottom-0 left-0 right-0 bg-teal-50 z-40 hidden">
+            <h1 class="w-80 mx-auto my-3 text-teal-600 text-lg font-bold">History</h1>
+            <div class="container w-80 mx-auto flex flex-wrap gap-1">
+              <span class="text-sm bg-white border-2 border-teal-400 text-teal-600 shadow px-3 rounded-full">Sayur <i class="fa-solid fa-xmark cursor-pointer"></i></span>
+              <span class="text-sm bg-white border-2 border-teal-400 text-teal-600 shadow px-3 rounded-full">Buah <i class="fa-solid fa-xmark cursor-pointer"></i></span>
+              <span class="text-sm bg-white border-2 border-teal-400 text-teal-600 shadow px-3 rounded-full">Sembako <i class="fa-solid fa-xmark cursor-pointer"></i></span>
+              <span class="text-sm bg-white border-2 border-teal-400 text-teal-600 shadow px-3 rounded-full">Snack <i class="fa-solid fa-xmark cursor-pointer"></i></span>
+              <span class="text-sm bg-white border-2 border-teal-400 text-teal-600 shadow px-3 rounded-full">Kebutuhan <i class="fa-solid fa-xmark cursor-pointer"></i></span>
+              <span class="text-sm bg-white border-2 border-teal-400 text-teal-600 shadow px-3 rounded-full">Daging <i class="fa-solid fa-xmark cursor-pointer"></i></span>
+              <span class="text-sm bg-white border-2 border-teal-400 text-teal-600 shadow px-3 rounded-full">Minuman <i class="fa-solid fa-xmark cursor-pointer"></i></span>
+              <span class="text-sm bg-white border-2 border-teal-400 text-teal-600 shadow px-3 rounded-full">Rempah <i class="fa-solid fa-xmark cursor-pointer"></i></span>
+            </div>
+          </div>
+          <!-- end search section -->
         </div>
-        <div class="flex items-center text-white relative hover:cursor-pointer">
+
+        <div onclick="cartToggle()" class="flex items-center text-white relative hover:cursor-pointer">
           <span id="cartCouter" class="bg-white text text-teal-800 border-2 border-teal-600 text-xs block h-[20px] w-[20px] rounded-full flex justify-center items-center absolute -top-4 -right-4">3</span>
           <i class="fa fa-shopping-cart text-white"></i>
         </div>
       </div>
+      <!-- cart section -->
+      <div id="cart-group" class="fixed top-18 -translate-y-1 bottom-0 left-0 right-0 bg-teal-50 z-40 hidden">
+        <h1 class="w-80 mx-auto my-3 text-teal-600 text-lg font-bold">Cart</h1>
+        <div class="container w-80 mx-auto flex flex-col items-center gap-1">
+          <div class="flex flex-col gap-3">
+            <!-- Card 1 -->
+            <div class="flex flex-col gap-3 relative">
+              <!-- Card 1 -->
+              <div class="w-full flex-shrink-0 bg-white border-2 border-teal-400 relative shadow rounded-lg overflow-hidden flex gap-2 items-center p-2">
+                <img class="w-18 h-18 object-cover rounded-lg" src="img/produk/pisang.jpg" alt="Pisang" />
+
+                <div class="flex-1">
+                  <h3 class="font-bold text-md">Pisang</h3>
+                  <span class="text-sm harga-dagangan text-gray-600">Rp. 10,000</span>
+                </div>
+
+                <div class="flex justify-between items-center text-xs font-bold h-6 w-[80px] bg-white shadow px-1 rounded-full border-2 border-teal-400">
+                  <button class="h-[20px] w-[18px] flex items-center justify-center cursor-pointer text-teal-600 hover:bg-teal-100 rounded-full">
+                    <i class="fa fa-minus"></i>
+                  </button>
+                  <div id="jumlah-pisang" class="h-[20px] w-[20px] flex items-center justify-center">0</div>
+                  <button class="h-[20px] w-[18px] flex items-center justify-center cursor-pointer text-teal-600 hover:bg-teal-100 rounded-full">
+                    <i class="fa fa-plus"></i>
+                  </button>
+                </div>
+
+                <!-- Tombol hapus (ikon tong sampah) -->
+                <button class="absolute top-1 right-1 h-[24px] w-[24px] flex items-center justify-center text-red-500 hover:text-white hover:bg-red-500 rounded-full transition">
+                  <i class="fa fa-trash"></i>
+                </button>
+              </div>
+
+              <!-- Card 2 -->
+              <div class="w-full flex-shrink-0 bg-white border-2 border-teal-400 relative shadow rounded-lg overflow-hidden flex gap-2 items-center p-2">
+                <img class="w-18 h-18 object-cover rounded-lg" src="img/produk/apel.jpg" alt="Apel" />
+
+                <div class="flex-1">
+                  <h3 class="font-bold text-md">Apel</h3>
+                  <span class="text-sm harga-dagangan text-gray-600">Rp. 12,000</span>
+                </div>
+
+                <div class="flex justify-between items-center text-xs font-bold h-6 w-[80px] bg-white shadow px-1 rounded-full border-2 border-teal-400">
+                  <button class="h-[20px] w-[18px] flex items-center justify-center cursor-pointer text-teal-600 hover:bg-teal-100 rounded-full">
+                    <i class="fa fa-minus"></i>
+                  </button>
+                  <div id="jumlah-apel" class="h-[20px] w-[20px] flex items-center justify-center">0</div>
+                  <button class="h-[20px] w-[18px] flex items-center justify-center cursor-pointer text-teal-600 hover:bg-teal-100 rounded-full">
+                    <i class="fa fa-plus"></i>
+                  </button>
+                </div>
+
+                <button class="absolute top-1 right-1 h-[24px] w-[24px] flex items-center justify-center text-red-500 hover:text-white hover:bg-red-500 rounded-full transition">
+                  <i class="fa fa-trash"></i>
+                </button>
+              </div>
+
+              <!-- Card 3 -->
+              <div class="w-full flex-shrink-0 bg-white border-2 border-teal-400 relative shadow rounded-lg overflow-hidden flex gap-2 items-center p-2">
+                <img class="w-18 h-18 object-cover rounded-lg" src="img/produk/mangga.jpg" alt="Mangga" />
+
+                <div class="flex-1">
+                  <h3 class="font-bold text-md">Mangga</h3>
+                  <span class="text-sm harga-dagangan text-gray-600">Rp. 15,000</span>
+                </div>
+
+                <div class="flex justify-between items-center text-xs font-bold h-6 w-[80px] bg-white shadow px-1 rounded-full border-2 border-teal-400">
+                  <button class="h-[20px] w-[18px] flex items-center justify-center cursor-pointer text-teal-600 hover:bg-teal-100 rounded-full">
+                    <i class="fa fa-minus"></i>
+                  </button>
+                  <div id="jumlah-mangga" class="h-[20px] w-[20px] flex items-center justify-center">0</div>
+                  <button class="h-[20px] w-[18px] flex items-center justify-center cursor-pointer text-teal-600 hover:bg-teal-100 rounded-full">
+                    <i class="fa fa-plus"></i>
+                  </button>
+                </div>
+
+                <button class="absolute top-1 right-1 h-[24px] w-[24px] flex items-center justify-center text-red-500 hover:text-white hover:bg-red-500 rounded-full transition">
+                  <i class="fa fa-trash"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a
+          href="https://wa.me/6285221978481?text=Halo%20saya%20mau%20checkout%20barang%20ini%3A%0A%0A1.%20Pisang%20-%20Rp10.000%20(x1)%0A2.%20Apel%20-%20Rp12.000%20(x1)%0A3.%20Mangga%20-%20Rp15.000%20(x1)%0A%0ATotal%3A%20Rp37.000"
+          target="_blank"
+          class="fixed w-9/10 block mx-auto bottom-4 left-1/2 -translate-x-1/2 bg-green-500 hover:bg-green-600 text-white text-sm font-semibold py-3 px-6 rounded-full flex items-center gap-2 shadow-lg"
+        >
+          <i class="fa-brands fa-whatsapp text-lg"></i>
+          <span>Checkout via WhatsApp (Rp. 37.000)</span>
+        </a>
+      </div>
+      <!-- end cart section -->
     </nav>
     <!-- bottom bar -->
-    <nav class="fixed bottom-2 left-1/2 -translate-x-1/2 rounded-full z-40 block py-[7px] w-1/2 bg-white border-2 border-teal-600 text-teal-600 shadow flex justify-center">
+    <nav class="fixed bottom-2 left-1/2 -translate-x-1/2 rounded-full z-10 block py-[7px] w-1/2 bg-white border-2 border-teal-600 text-teal-600 shadow flex justify-center">
       <div class="w-9/10 flex justify-center gap-5 items-center">
         <!-- Beranda -->
         <a href="beranda.html">
@@ -55,18 +164,78 @@
             <svg xmlns="http://www.w3.org/2000/svg" fill="#0d9488" viewBox="0 0 24 24" stroke-width="1.5" stroke="white" class="w-5 h-5">
               <path stroke-linecap="round" stroke-linejoin="round" d="M6 2.25h12a.75.75 0 01.75.75v3H5.25v-3a.75.75 0 01.75-.75zM3.75 6.75h16.5L19.5 21.75H4.5L3.75 6.75zM8.25 10.5a3.75 3.75 0 017.5 0" />
             </svg>
-            <span class="text-xs">Lainnya</span>
+            <span class="text-xs">Kategori</span>
           </div></a
         >
       </div>
     </nav>
-
-    lainnya
+    <!-- end all nav -->
+    <div class="w-9/10 flex justify-between mx-auto mt-20 mb-7 text-md font-bold text-teal-800">
+      <h1 class="text-2xl">Kategori Barang</h1>
+    </div>
+    <section id="kategori" class="w-9/10 mx-auto">
+      <div class="text-teal-900 container mx-auto flex flex-col gap-4">
+        <!-- Card sayur -->
+        <div class="w-full h-78 flex-shrink-0 bg-white border-2 border-teal-400 relative shadow rounded-lg overflow-hidden bg-[url(img/sayur-sayuran.jpg)] bg-cover bg-bottom">
+          <div class="absolute bottom-0 px-2 pb-3 w-full text-white bg-teal-600 flex">
+            <div class="w-5/6">
+              <h2 class="text-2xl font-bold mt-2 my-3">Sayur-sayuran</h2>
+              <p class="text-sm leading-[1.2]">Sayur segar langsung dari kebun terbaik menjaga kualitas rasa dan gizi agar keluarga menikmati masakan sehat setiap hari selalu nikmat.</p>
+            </div>
+            <div class="flex items-center justify-center items-center justify-center">
+              <a href="sayur.html" class="size-13 border-2 border-white rounded-full flex items-center justify-center cursor-pointer active:bg-white group"
+                ><i class="fa-solid fa-arrow-right inline-block group-active:text-teal-600 duration-500"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+        <!-- Card Buah -->
+        <div class="w-full h-78 flex-shrink-0 bg-white border-2 border-teal-400 relative shadow rounded-lg overflow-hidden bg-[url(img/buah-buahan.jpg)] bg-cover bg-bottom">
+          <div class="absolute bottom-0 px-2 pb-3 w-full text-white bg-teal-600 flex">
+            <div class="w-5/6">
+              <h2 class="text-2xl font-bold mt-2 my-3">Buah-buahan</h2>
+              <p class="text-sm leading-[1.2]">Buah segar berkualitas tinggi kami sediakan untuk memenuhi kebutuhan gizi keluarga, menghadirkan rasa alami, kesegaran optimal, serta kesehatan setiap hari.</p>
+            </div>
+            <div class="flex items-center justify-center items-center justify-center">
+              <a href="sayur.html" class="size-13 border-2 border-white rounded-full flex items-center justify-center cursor-pointer active:bg-white group"
+                ><i class="fa-solid fa-arrow-right inline-block group-active:text-teal-600 duration-500"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+        <!-- Card sayur -->
+        <div class="w-full h-78 flex-shrink-0 bg-white border-2 border-teal-400 relative shadow rounded-lg overflow-hidden bg-[url(img/sembako.jpg)] bg-cover bg-bottom">
+          <div class="absolute bottom-0 px-2 pb-3 w-full text-white bg-teal-600 flex">
+            <div class="w-5/6">
+              <h2 class="text-2xl font-bold mt-2 my-3">Sembako</h2>
+              <p class="text-sm leading-[1.2]">Sembako lengkap dan terjamin mutunya kami hadirkan guna mendukung kebutuhan harian keluarga dengan layanan yang praktis, aman, terpercaya, dan konsisten setiap waktu.</p>
+            </div>
+            <div class="flex items-center justify-center items-center justify-center">
+              <a href="sayur.html" class="size-13 border-2 border-white rounded-full flex items-center justify-center cursor-pointer active:bg-white group"
+                ><i class="fa-solid fa-arrow-right inline-block group-active:text-teal-600 duration-500"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+        <!-- Card sayur -->
+        <div class="w-full h-78 flex-shrink-0 bg-white border-2 border-teal-400 relative shadow rounded-lg overflow-hidden bg-[url(img/carousel-3.jpg)] bg-cover bg-bottom">
+          <div class="absolute bottom-0 px-2 pb-3 w-full text-white bg-teal-600 flex">
+            <div class="w-5/6">
+              <h2 class="text-xl font-bold mt-2 my-3">Kebutuhan Rumah Tangga</h2>
+              <p class="text-sm leading-[1.2]">Beragam kebutuhan rumah tangga kami sediakan secara lengkap agar aktivitas keluarga berlangsung lebih mudah, tertata, efisien, bersih, serta nyaman setiap hari tanpa hambatan.”</p>
+            </div>
+            <div class="flex items-center justify-center items-center justify-center">
+              <a href="sayur.html" class="size-13 border-2 border-white rounded-full flex items-center justify-center cursor-pointer active:bg-white group"
+                ><i class="fa-solid fa-arrow-right inline-block group-active:text-teal-600 duration-500"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <div class="mb-[100px]"></div>
 
-    <!-- flowbite -->
-    <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
     <script src="js/ui.js"></script>
     <script src="js/dataProduk.js"></script>
     <script src="js/renderproduk.js"></script>

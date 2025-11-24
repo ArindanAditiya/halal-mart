@@ -31,16 +31,15 @@ function renderCard(data, containerId, limit = null) {
     const count = document.createElement("div");
     count.className = "flex justify-between items-center text-xs font-bold h-5 w-[80px] bg-white absolute right-[5px] top-[130px] shadow px-1 rounded-full border-2 border-teal-400";
     count.innerHTML = `
-      <div class="h-[20px] w-[15px] flex items-center justify-center cursor-pointer" onclick="kurang(${item.id})">
+      <div class="h-[20px] w-[15px] flex items-center justify-center cursor-pointer rounded-full active:bg-teal-800 active:text-white px-3" onclick="kurang(${item.id})">
         <i class="fa fa-minus"></i>
       </div>
       <div id="count-${item.id}" class="h-[20px] w-[15px] flex items-center justify-center">0</div>
-      <div class="h-[20px] w-[15px] flex items-center justify-center cursor-pointer" onclick="tambah(${item.id})">
+      <div class="h-[20px] w-[15px] flex items-center justify-center cursor-pointer rounded-full active:bg-teal-800 active:text-white px-3" onclick="tambah(${item.id})">
         <i class="fa fa-plus"></i>
       </div>
     `;
     card.appendChild(count);
-
     container.appendChild(card);
   });
 }
